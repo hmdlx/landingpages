@@ -96,11 +96,29 @@ def box(s, f, bg, fg, padx=34, pady=22, track=0, icon=None, min_h=0, arrow=False
     return layer, m, bw, bh
 
 
+LOGO = Image.open(os.path.join(HERE, "homedeluxe_logo_white.webp")).convert("RGBA")
+
+
+def logo_box(h, padx, pady):
+    """Navy box with the white Home Deluxe logo. Same return shape as box()."""
+    lw = round(LOGO.width * h / LOGO.height)
+    logo = LOGO.resize((lw, h), Image.LANCZOS)
+    bw, bh = lw + 2 * padx, h + 2 * pady
+    m = 40
+    layer = Image.new("RGBA", (bw + 2 * m, bh + 2 * m), (0, 0, 0, 0))
+    sh = Image.new("RGBA", layer.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rectangle([m, m + 10, m + bw, m + bh + 10], fill=NAVY + (90,))
+    layer = Image.alpha_composite(layer, sh.filter(ImageFilter.GaussianBlur(16)))
+    ImageDraw.Draw(layer).rectangle([m, m, m + bw - 1, m + bh - 1], fill=NAVY + (255,))
+    layer.alpha_composite(logo, (m + padx, m + pady))
+    return layer, m, bw, bh
+
+
 class El:
     """An animated box: wipes in left->right with text sliding up, exits sliding left + fade."""
 
-    def __init__(self, s, f, bg, fg, x, y, t_in, t_out, wipe=0.38, exit=0.26, align="l", **kw):
-        self.img, self.m, self.bw, self.bh = box(s, f, bg, fg, **kw)
+    def __init__(self, s, f, bg, fg, x, y, t_in, t_out, wipe=0.38, exit=0.26, align="l", built=None, **kw):
+        self.img, self.m, self.bw, self.bh = built or box(s, f, bg, fg, **kw)
         self.bg = bg
         self.x = x if align == "l" else int((W - self.bw) / 2)
         self.y = y
@@ -162,7 +180,7 @@ F_URL = font(500, 32)
 els = []
 # Scene 1 – hook (rain)
 els += [
-    El("HOME DELUXE", F_TAG, NAVY, WHITE, X0, 1110, 0.02, 1.66, padx=26, pady=18, track=6),
+    El(None, None, NAVY, WHITE, X0, 1104, 0.02, 1.66, built=logo_box(36, 26, 18)),
     El("Regen?", F_H1, NAVY, WHITE, X0, 1194, 0.12, 1.70, padx=40, pady=34),
     El("Kein Problem.", F_H2, WHITE, NAVY, X0, 1378, 0.32, 1.74, padx=36, pady=28),
 ]
@@ -180,7 +198,7 @@ for i, s in enumerate(chips):
                   padx=24, pady=20, icon=True))
 # Scene 4 – end card (sunny)
 els += [
-    El("HOME DELUXE", F_TAG, NAVY, WHITE, 0, 250, 7.62 - SH, None, padx=26, pady=18, track=6, align="c"),
+    El(None, None, NAVY, WHITE, 0, 228, 7.62 - SH, None, built=logo_box(44, 30, 20), align="c"),
     El("Design Carport", F_H2, NAVY, WHITE, 0, 328, 7.78 - SH, None, padx=40, pady=30, align="c"),
     El("Bei jedem Wetter geschützt.", F_SB, WHITE, NAVY, 0, 480, 7.98 - SH, None, padx=28, pady=20, align="c"),
 ]
