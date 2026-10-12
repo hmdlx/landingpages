@@ -3,7 +3,7 @@ import math, os, sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H, FPS = 1080, 1920, 24
-SH = 22 / 24  # Polycarbonat-Szene gekuerzt (3.25s -> 4.1667s entfernt)
+SH = -32 / 24  # Polycarbonat-Szene per Zeitlupe verlaengert (2.17s -> 3.5s)
 DUR = 10.041667 - SH
 N = int(round(DUR * FPS))
 NAVY = (15, 35, 52)      # #0f2334
@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "fonts")
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
-CUTS = [2.0, 3.25, 7.458333 - SH]
+CUTS = [2.0, 5.5, 7.458333 - SH]
 X0 = 64  # left safe margin
 
 
@@ -170,8 +170,8 @@ els += [
 S2_DOT = (330, 470)
 S2_LBL_Y = 1150
 els += [
-    El("Polycarbonat-Dach", F_LB, NAVY, WHITE, X0, S2_LBL_Y, 2.32, 2.96, padx=34, pady=28),
-    El("100 % UV-beständig", F_SB, WHITE, NAVY, X0, S2_LBL_Y + 112, 2.44, 2.99, padx=28, pady=20),
+    El("Polycarbonat-Dach", F_LB, NAVY, WHITE, X0, S2_LBL_Y, 2.62, 5.14, padx=34, pady=28),
+    El("100 % UV-beständig", F_SB, WHITE, NAVY, X0, S2_LBL_Y + 112, 2.80, 5.18, padx=28, pady=20),
 ]
 # Scene 3 – feature chips (aerial)
 chips = ["Pulverbeschichtetes Aluminium", "Korrosionsbeständig & langlebig", "Schutz vor Regen, Schnee & Hagel"]
@@ -224,18 +224,18 @@ def render_cta(cv, t):
 
 def render_callout(cv, t):
     """Pulsing dot on the roof + connector line down to the label (scene 2)."""
-    if not (2.08 <= t < 3.24):
+    if not (2.25 <= t < 5.45):
         return
-    q = ease_in(prog(t, 2.96, 0.26))
+    q = ease_in(prog(t, 5.14, 0.26))
     alpha = 1 - q
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
     x, y = S2_DOT
-    pd = prog(t, 2.08, 0.28)
+    pd = prog(t, 2.25, 0.32)
     r = 15 * ease_back(pd)
     # pulse rings
     for k in range(2):
-        ph = ((t - 2.2) / 0.9 + k * 0.5) % 1.0 if t > 2.2 else None
+        ph = ((t - 2.45) / 1.1 + k * 0.5) % 1.0 if t > 2.45 else None
         if ph is not None:
             rr = 16 + 60 * ease_out(ph)
             d.ellipse([x - rr, y - rr, x + rr, y + rr], outline=WHITE + (int(220 * (1 - ph) * alpha),), width=4)
@@ -243,7 +243,7 @@ def render_callout(cv, t):
         d.ellipse([x - r - 7, y - r - 7, x + r + 7, y + r + 7], fill=NAVY + (int(255 * alpha),))
         d.ellipse([x - r, y - r, x + r, y + r], fill=WHITE + (int(255 * alpha),))
     # elbow line: down from dot, then left to label x
-    pl = ease_io(prog(t, 2.16, 0.3))
+    pl = ease_io(prog(t, 2.42, 0.38))
     if pl > 0:
         ly = S2_LBL_Y - 30
         seg1 = ly - (y + 24)
