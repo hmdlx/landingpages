@@ -3,7 +3,8 @@ import math, os, sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H, FPS = 1080, 1920, 24
-DUR = 10.041667
+SH = 22 / 24  # Polycarbonat-Szene gekuerzt (3.25s -> 4.1667s entfernt)
+DUR = 10.041667 - SH
 N = int(round(DUR * FPS))
 NAVY = (15, 35, 52)      # #0f2334
 WHITE = (254, 254, 254)  # #fefefe
@@ -11,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "fonts")
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
-CUTS = [2.0, 4.166667, 7.458333]
+CUTS = [2.0, 3.25, 7.458333 - SH]
 X0 = 64  # left safe margin
 
 
@@ -169,19 +170,19 @@ els += [
 S2_DOT = (330, 470)
 S2_LBL_Y = 1150
 els += [
-    El("Polycarbonat-Dach", F_LB, NAVY, WHITE, X0, S2_LBL_Y, 2.62, 3.86, padx=34, pady=28),
-    El("100 % UV-beständig", F_SB, WHITE, NAVY, X0, S2_LBL_Y + 112, 2.80, 3.90, padx=28, pady=20),
+    El("Polycarbonat-Dach", F_LB, NAVY, WHITE, X0, S2_LBL_Y, 2.32, 2.96, padx=34, pady=28),
+    El("100 % UV-beständig", F_SB, WHITE, NAVY, X0, S2_LBL_Y + 112, 2.44, 2.99, padx=28, pady=20),
 ]
 # Scene 3 – feature chips (aerial)
 chips = ["Pulverbeschichtetes Aluminium", "Korrosionsbeständig & langlebig", "Schutz vor Regen, Schnee & Hagel"]
 for i, s in enumerate(chips):
-    els.append(El(s, F_CH, NAVY, WHITE, X0, 1236 + i * 92, 4.42 + i * 0.22, 7.06 + i * 0.05,
+    els.append(El(s, F_CH, NAVY, WHITE, X0, 1236 + i * 92, 4.42 - SH + i * 0.22, 7.06 - SH + i * 0.05,
                   padx=24, pady=20, icon=True))
 # Scene 4 – end card (sunny)
 els += [
-    El("HOME DELUXE", F_TAG, NAVY, WHITE, 0, 250, 7.62, None, padx=26, pady=18, track=6, align="c"),
-    El("Design Carport", F_H2, NAVY, WHITE, 0, 328, 7.78, None, padx=40, pady=30, align="c"),
-    El("Bei jedem Wetter geschützt.", F_SB, WHITE, NAVY, 0, 480, 7.98, None, padx=28, pady=20, align="c"),
+    El("HOME DELUXE", F_TAG, NAVY, WHITE, 0, 250, 7.62 - SH, None, padx=26, pady=18, track=6, align="c"),
+    El("Design Carport", F_H2, NAVY, WHITE, 0, 328, 7.78 - SH, None, padx=40, pady=30, align="c"),
+    El("Bei jedem Wetter geschützt.", F_SB, WHITE, NAVY, 0, 480, 7.98 - SH, None, padx=28, pady=20, align="c"),
 ]
 
 # CTA button (scale-pop) + URL
@@ -191,13 +192,13 @@ url_img, url_m, url_w, url_h = box("homedeluxe.de", F_URL, NAVY, WHITE, padx=24,
 
 
 def render_cta(cv, t):
-    p = prog(t, 8.25, 0.42)
+    p = prog(t, 8.25 - SH, 0.42)
     if p <= 0:
         return
     s = 0.6 + 0.4 * ease_back(p)
     img = cta_img.copy()
     # shine sweep
-    sp = prog(t, 9.05, 0.55)
+    sp = prog(t, 9.05 - SH, 0.55)
     if 0 < sp < 1:
         sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
         sx = cta_m - 120 + (cta_w + 240) * ease_io(sp)
@@ -214,7 +215,7 @@ def render_cta(cv, t):
     cx, cy = W / 2, CTA_Y + cta_h / 2
     cv.alpha_composite(img, (int(cx - sw / 2), int(cy - shh / 2)))
     # url
-    pu = ease_out(prog(t, 8.5, 0.4))
+    pu = ease_out(prog(t, 8.5 - SH, 0.4))
     if pu > 0:
         u = url_img.copy()
         u.putalpha(u.getchannel("A").point(lambda v: int(v * pu)))
@@ -223,18 +224,18 @@ def render_cta(cv, t):
 
 def render_callout(cv, t):
     """Pulsing dot on the roof + connector line down to the label (scene 2)."""
-    if not (2.25 <= t < 4.15):
+    if not (2.08 <= t < 3.24):
         return
-    q = ease_in(prog(t, 3.84, 0.26))
+    q = ease_in(prog(t, 2.96, 0.26))
     alpha = 1 - q
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
     x, y = S2_DOT
-    pd = prog(t, 2.25, 0.32)
+    pd = prog(t, 2.08, 0.28)
     r = 15 * ease_back(pd)
     # pulse rings
     for k in range(2):
-        ph = ((t - 2.45) / 1.1 + k * 0.5) % 1.0 if t > 2.45 else None
+        ph = ((t - 2.2) / 0.9 + k * 0.5) % 1.0 if t > 2.2 else None
         if ph is not None:
             rr = 16 + 60 * ease_out(ph)
             d.ellipse([x - rr, y - rr, x + rr, y + rr], outline=WHITE + (int(220 * (1 - ph) * alpha),), width=4)
@@ -242,7 +243,7 @@ def render_callout(cv, t):
         d.ellipse([x - r - 7, y - r - 7, x + r + 7, y + r + 7], fill=NAVY + (int(255 * alpha),))
         d.ellipse([x - r, y - r, x + r, y + r], fill=WHITE + (int(255 * alpha),))
     # elbow line: down from dot, then left to label x
-    pl = ease_io(prog(t, 2.42, 0.38))
+    pl = ease_io(prog(t, 2.16, 0.3))
     if pl > 0:
         ly = S2_LBL_Y - 30
         seg1 = ly - (y + 24)
@@ -274,7 +275,7 @@ for yy in range(900, H):
 
 
 def render_grad(cv, t):
-    p = ease_io(prog(t, 7.46, 0.5))
+    p = ease_io(prog(t, 7.46 - SH, 0.5))
     if p <= 0:
         return
     g = GRAD.copy()
