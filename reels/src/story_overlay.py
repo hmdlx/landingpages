@@ -58,8 +58,8 @@ cv = cv.convert("RGBA")
 # --- Verläufe: oben leicht (Logo-Lesbarkeit), unten kräftig (Textfläche) ---
 grad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 gd = ImageDraw.Draw(grad)
-for y in range(0, 300):
-    a = (1 - y / 300) ** 1.6 * 0.55
+for y in range(0, 380):
+    a = (1 - y / 380) ** 1.6 * 0.55
     gd.line([(0, y), (W, y)], fill=NAVY + (int(255 * a),))
 for y in range(980, H):
     p = min(1.0, (y - 980) / 600)
@@ -74,7 +74,7 @@ d = ImageDraw.Draw(txt)
 logo = Image.open(os.path.join(HERE, "homedeluxe_logo_white.webp")).convert("RGBA")
 LW = 350
 logo = logo.resize((LW, round(logo.height * LW / logo.width)), Image.LANCZOS)
-cv.alpha_composite(logo, ((W - LW) // 2, 62))
+cv.alpha_composite(logo, ((W - LW) // 2, 160))
 
 # --- Textblock ---
 f_kick = font(400, 36)
