@@ -14,7 +14,8 @@ MX = 108  # linker Textrand
 KICKER = "NEW IN"
 NAME_LIGHT = "DESIGN CARPORT"
 NAME_BOLD = "FALO"
-BODY = "Zuverlässiger Schutz vor Regen, Schnee und Hagel."
+BODY = ("Schützt dein Auto zuverlässig vor Regen, Schnee und Hagel. Mit robustem "
+        "Aluminiumrahmen und UV-beständigem Polycarbonat-Dach.")
 
 
 def font(w, size):
@@ -82,9 +83,9 @@ f_light = font(400, 64)
 f_bold = font(700, 64)
 f_body = font(400, 29)
 
-tracked(d, MX, 1366, KICKER, f_kick, 8)
-tracked(d, MX, 1502, NAME_LIGHT, f_light, 3)
-tracked(d, MX, 1586, NAME_BOLD, f_bold, 3)
+tracked(d, MX, 1316, KICKER, f_kick, 8)
+tracked(d, MX, 1452, NAME_LIGHT, f_light, 3)
+tracked(d, MX, 1536, NAME_BOLD, f_bold, 3)
 
 # Beschreibung umbrechen
 maxw = W - 2 * MX
@@ -98,7 +99,7 @@ for w in words:
         cur = w
 lines.append(cur)
 for i, ln in enumerate(lines):
-    tracked(d, MX, 1682 + i * 48, ln, f_body, 2)
+    tracked(d, MX, 1632 + i * 48, ln, f_body, 2)
 
 # dezenter Navy-Schatten unter der Schrift für Lesbarkeit
 shadow = Image.new("RGBA", (W, H), NAVY + (0,))
