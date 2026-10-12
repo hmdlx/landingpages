@@ -14,8 +14,7 @@ MX = 108  # linker Textrand
 KICKER = "NEW IN"
 NAME_LIGHT = "DESIGN CARPORT"
 NAME_BOLD = "FALO"
-BODY = ("Schützt dein Auto zuverlässig vor Regen, Schnee und Hagel – mit robustem "
-        "Aluminiumrahmen und UV-beständigem Polycarbonat-Dach.")
+BODY = "Zuverlässiger Schutz vor Regen, Schnee und Hagel."
 
 
 def font(w, size):
@@ -39,10 +38,13 @@ TOP = 80
 cv = Image.new("RGB", (W, H))
 # oben: Himmel aus den obersten Zeilen strecken
 cv.paste(img.crop((0, 0, W, 40)).resize((W, TOP + 40), Image.BICUBIC).filter(ImageFilter.GaussianBlur(12)), (0, 0))
-# unten: Pflaster gespiegelt fortsetzen (liegt später unter dem Verlauf)
+# unten: nur Pflasterstreifen abwechselnd gespiegelt fortsetzen (ohne Auto/Busch)
 bottom_h = H - (TOP + S)
-mirror = img.crop((0, S - bottom_h - 60, W, S)).transpose(Image.FLIP_TOP_BOTTOM).filter(ImageFilter.GaussianBlur(3))
-cv.paste(mirror, (0, TOP + S - 60))
+band = img.crop((0, S - 140, W, S))
+fill = Image.new("RGB", (W, bottom_h + 60))
+for k in range(0, fill.height, band.height):
+    fill.paste(band.transpose(Image.FLIP_TOP_BOTTOM) if (k // band.height) % 2 == 0 else band, (0, k))
+cv.paste(fill.filter(ImageFilter.GaussianBlur(2)), (0, TOP + S - 60))
 # Original mit weicher Kante drüber
 mask = Image.new("L", (W, S), 255)
 md = ImageDraw.Draw(mask)
@@ -59,13 +61,14 @@ gd = ImageDraw.Draw(grad)
 for y in range(0, 300):
     a = (1 - y / 300) ** 1.6 * 0.55
     gd.line([(0, y), (W, y)], fill=NAVY + (int(255 * a),))
-for y in range(860, H):
-    p = min(1.0, (y - 860) / 500)
-    a = (p ** 1.5) * 0.96
+for y in range(980, H):
+    p = min(1.0, (y - 980) / 600)
+    a = (p ** 1.5) * 0.88
     gd.line([(0, y), (W, y)], fill=NAVY + (int(255 * a),))
 cv.alpha_composite(grad)
 
-d = ImageDraw.Draw(cv)
+txt = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+d = ImageDraw.Draw(txt)
 
 # --- Logo oben mittig ---
 logo = Image.open(os.path.join(HERE, "homedeluxe_logo_white.webp")).convert("RGBA")
@@ -79,9 +82,9 @@ f_light = font(400, 64)
 f_bold = font(700, 64)
 f_body = font(400, 29)
 
-tracked(d, MX, 1296, KICKER, f_kick, 8)
-tracked(d, MX, 1432, NAME_LIGHT, f_light, 3)
-tracked(d, MX, 1516, NAME_BOLD, f_bold, 3)
+tracked(d, MX, 1366, KICKER, f_kick, 8)
+tracked(d, MX, 1502, NAME_LIGHT, f_light, 3)
+tracked(d, MX, 1586, NAME_BOLD, f_bold, 3)
 
 # Beschreibung umbrechen
 maxw = W - 2 * MX
@@ -95,7 +98,12 @@ for w in words:
         cur = w
 lines.append(cur)
 for i, ln in enumerate(lines):
-    tracked(d, MX, 1612 + i * 48, ln, f_body, 2)
+    tracked(d, MX, 1682 + i * 48, ln, f_body, 2)
 
+# dezenter Navy-Schatten unter der Schrift für Lesbarkeit
+shadow = Image.new("RGBA", (W, H), NAVY + (0,))
+shadow.putalpha(txt.getchannel("A").filter(ImageFilter.GaussianBlur(10)).point(lambda v: int(v * 0.45)))
+cv.alpha_composite(shadow)
+cv.alpha_composite(txt)
 cv.convert("RGB").save(OUT, quality=95)
 print(OUT, len(lines), "Zeilen")
