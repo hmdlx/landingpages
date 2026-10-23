@@ -44,6 +44,26 @@ Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Regeln fü
 - `Wir haben an deinen Whirlpool gedacht` / `Gerade jetzt im Herbst wird das für dich wichtig – schau mal kurz rein.`
 - Getrennte Listen: `Das habe ich für deinen SPLASH` bzw. `… DROP` / `Passt genau auf deinen Whirlpool und hält die Wärme drin. Schau mal rein.`
 
+## Komprimierte Creatives (zum Hochladen in JUNE)
+
+Alle Bilder sind komprimiert und auf die doppelte Anzeigebreite gebracht (scharf auf Retina, nicht größer als nötig). Das HTML verweist noch auf die bisherigen gehosteten URLs, damit der Import funktioniert. Nach dem Upload die URLs tauschen.
+
+| Creative | aktuell im HTML | Größe | komprimiert | Größe | Hinweis |
+|---|---|---|---|---|---|
+| Thermo-Scan-GIF | `3d2f402191c8d809c078b9851b80ba9e.gif` | 3,050 KB | `assets/thermo-scan.gif` | 2,046 KB | 552 px, 46 Frames, Timing unverändert |
+| Hero DROP | `48119-Home-Deluxe-Outdoor-Whirlpool-Drop-Ambiente-Model01.jpg` | 317 KB | `assets/hero-drop.jpg` | 66 KB | 540 px (2× Anzeigebreite) |
+| Hero SPLASH | `32309-Home-Deluxe-Outdoor-Whirpool-Splash-Grau-Ambiente-Model02.jpg` | 127 KB | `assets/hero-splash.jpg` | 55 KB | 540 px |
+| Logo | `89c7c3da91206c657d21a846a65f3a97.png` | 17 KB | `assets/logo.png` | 3 KB | 340 px (2× 170 px) |
+| CTA-Karte SPLASH THERMO | `f410213b37e003a7161e55e1789cab54.jpg` | 16 KB | `assets/karte-splash-thermo.jpg` | 12 KB | 540 px |
+| CTA-Karte DROP THERMO | `8e40be39af22e4c35d7cfe1572a5b44a.jpg` | 14 KB | `assets/karte-drop-thermo.jpg` | 10 KB | 540 px |
+| Footer Trusted Shops | `352cb1f2ec9456e5df9b7c4249b9134d.png` | 14 KB | `assets/trusted-shops.png` | 5 KB |  |
+| Footer Instagram | `928a1e0f88f0db0ab7c4eec0f21a0252.png` | 2 KB | `assets/icon-instagram.png` | 1 KB |  |
+| Footer YouTube | `28b08d2b7161e66b6a5a7a469e8df404.png` | 2 KB | `assets/icon-youtube.png` | 1 KB |  |
+| Footer Facebook | `2579887b5c8338d362b9d7502108c5fa.png` | 1 KB | `assets/icon-facebook.png` | 1 KB |  |
+| **Gesamt** | | **3.64 MB** | | **2.25 MB** | −38 % |
+
+Werkzeuge: GIF mit gifsicle (`--resize-width 552 --colors 256 --lossy=140 -O3`), JPG mit Pillow (Qualität 80, progressiv) + jpegoptim `--strip-all`, PNG mit pngquant (Qualität 70–95).
+
 ## JUNE-Kompatibilität
 
 Das HTML ist wie ein JUNE-Export aufgebaut (Vorlage: KW43-Export), weil der Import sonst mit „Validation Error – Cannot read properties of undefined (reading 'replace')“ abbrach:
