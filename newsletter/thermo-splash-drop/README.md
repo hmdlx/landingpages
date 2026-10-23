@@ -12,15 +12,21 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 | 3 | Lösung | NEU · „Deckel drauf. Wärme drin.“ + Thermo-Scan-GIF + 3 Kurz-Nutzen |
 | 4 | CTA | „Jetzt passende Abdeckung sichern.“ + 2 Produktkarten (Bild, Maß, Preis, Button) + Versand / Vorrat |
 
-## Bilder (alle gehostet, nichts hochzuladen)
+## Bilder (alle komprimiert und gehostet)
 
-| Stelle | Quelle |
-|---|---|
-| Logo | `homedeluxe-bf09.kxcdn.com/89c7c3da91206c657d21a846a65f3a97.png` |
-| Hero SPLASH | Shop-CDN: `32309-…-Splash-Grau-Ambiente-Model02.jpg` |
-| Hero DROP | Shop-CDN: `48119-…-Drop-Ambiente-Model01.jpg` |
-| Thermo-Scan | `homedeluxe-bf09.kxcdn.com/3d2f402191c8d809c078b9851b80ba9e.gif` (640 px, 11 s, 3,1 MB) |
-| CTA-Karten | `homedeluxe-bf09.kxcdn.com/f410213b37e003a7161e55e1789cab54.jpg` (SPLASH), `…/8e40be39af22e4c35d7cfe1572a5b44a.jpg` (DROP) |
+| Stelle | URL (`homedeluxe-bf09.kxcdn.com/…`) | Größe |
+|---|---|---|
+| Logo | `d165842d053f4fd30f127a7143e5d309.png` | 4 KB |
+| Hero SPLASH | `b2e6ddf7050e7ed42414d0c4cad2fefe.jpg` | 74 KB |
+| Hero DROP | `c279ef0682a7953651220d6b4217a4f9.jpg` | 85 KB |
+| Thermo-Scan-GIF | `0f16e56dacd0c23e662ea34215a4d944.gif` | 2,0 MB |
+| CTA-Karte SPLASH THERMO | `1ef0ce689d79c56872e3a48a3efeeacd.jpg` | 13 KB |
+| CTA-Karte DROP THERMO | `7ea6654650ea18e26f9daf17e3da2fad.jpg` | 11 KB |
+| Footer Instagram / Facebook / YouTube | `2cf8c00d…png` / `2d88e6aa…png` / `a3f8541d…png` | je ~1 KB |
+| Footer Trusted Shops | `8b90e531204f06073c688e086883f8d2.png` | 7 KB |
+| **Gesamt beim Öffnen** | | **~2,24 MB** (vorher 3,64 MB) |
+
+Die Quelldateien liegen in `assets/`.
 
 ## Betreff & Preheader (persönlicher Ton, wie eine direkte Nachricht)
 
@@ -43,26 +49,6 @@ Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Regeln fü
 **Alternativen im gleichen Ton**
 - `Wir haben an deinen Whirlpool gedacht` / `Gerade jetzt im Herbst wird das für dich wichtig – schau mal kurz rein.`
 - Getrennte Listen: `Das habe ich für deinen SPLASH` bzw. `… DROP` / `Passt genau auf deinen Whirlpool und hält die Wärme drin. Schau mal rein.`
-
-## Komprimierte Creatives (zum Hochladen in JUNE)
-
-Alle Bilder sind komprimiert und auf die doppelte Anzeigebreite gebracht (scharf auf Retina, nicht größer als nötig). Das HTML verweist noch auf die bisherigen gehosteten URLs, damit der Import funktioniert. Nach dem Upload die URLs tauschen.
-
-| Creative | aktuell im HTML | Größe | komprimiert | Größe | Hinweis |
-|---|---|---|---|---|---|
-| Thermo-Scan-GIF | `3d2f402191c8d809c078b9851b80ba9e.gif` | 3,050 KB | `assets/thermo-scan.gif` | 2,046 KB | 552 px, 46 Frames, Timing unverändert |
-| Hero DROP | `48119-Home-Deluxe-Outdoor-Whirlpool-Drop-Ambiente-Model01.jpg` | 317 KB | `assets/hero-drop.jpg` | 66 KB | 540 px (2× Anzeigebreite) |
-| Hero SPLASH | `32309-Home-Deluxe-Outdoor-Whirpool-Splash-Grau-Ambiente-Model02.jpg` | 127 KB | `assets/hero-splash.jpg` | 55 KB | 540 px |
-| Logo | `89c7c3da91206c657d21a846a65f3a97.png` | 17 KB | `assets/logo.png` | 3 KB | 340 px (2× 170 px) |
-| CTA-Karte SPLASH THERMO | `f410213b37e003a7161e55e1789cab54.jpg` | 16 KB | `assets/karte-splash-thermo.jpg` | 12 KB | 540 px |
-| CTA-Karte DROP THERMO | `8e40be39af22e4c35d7cfe1572a5b44a.jpg` | 14 KB | `assets/karte-drop-thermo.jpg` | 10 KB | 540 px |
-| Footer Trusted Shops | `352cb1f2ec9456e5df9b7c4249b9134d.png` | 14 KB | `assets/trusted-shops.png` | 5 KB |  |
-| Footer Instagram | `928a1e0f88f0db0ab7c4eec0f21a0252.png` | 2 KB | `assets/icon-instagram.png` | 1 KB |  |
-| Footer YouTube | `28b08d2b7161e66b6a5a7a469e8df404.png` | 2 KB | `assets/icon-youtube.png` | 1 KB |  |
-| Footer Facebook | `2579887b5c8338d362b9d7502108c5fa.png` | 1 KB | `assets/icon-facebook.png` | 1 KB |  |
-| **Gesamt** | | **3.64 MB** | | **2.25 MB** | −38 % |
-
-Werkzeuge: GIF mit gifsicle (`--resize-width 552 --colors 256 --lossy=140 -O3`), JPG mit Pillow (Qualität 80, progressiv) + jpegoptim `--strip-all`, PNG mit pngquant (Qualität 70–95).
 
 ## JUNE-Kompatibilität
 
