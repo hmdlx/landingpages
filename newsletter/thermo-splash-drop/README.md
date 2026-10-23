@@ -44,6 +44,15 @@ Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Regeln fü
 - `Wir haben an deinen Whirlpool gedacht` / `Gerade jetzt im Herbst wird das für dich wichtig – schau mal kurz rein.`
 - Getrennte Listen: `Das habe ich für deinen SPLASH` bzw. `… DROP` / `Passt genau auf deinen Whirlpool und hält die Wärme drin. Schau mal rein.`
 
+## JUNE-Kompatibilität
+
+Das HTML ist wie ein JUNE-Export aufgebaut (Vorlage: KW43-Export), weil der Import sonst mit „Validation Error – Cannot read properties of undefined (reading 'replace')“ abbrach:
+- `<head>` 1:1 aus dem JUNE-Export (JUNE-Kommentar, Meta, Style-Blöcke), nur Titel getauscht und Poppins per `@import` ergänzt; kein eigenes `<link>`/`<style>` mehr.
+- `<body>`-Attribute, Wrapper `<div class="a">` und Preheader im JUNE-Format.
+- Jeder Bild- und Button-Link trägt `data-trigger-action-id="#{image.actionTriggerId}"` bzw. `#{button.actionTriggerId}` (Klick-Tracking).
+- Links mit rohem `&` statt `&amp;` (wie im Export).
+- Eigene Texte als `<div>` statt `<p>/<h1>/<h2>`, weil das JUNE-CSS `p` mobil auf 12 px Verdana zwingt.
+
 ## Footer
 
 Standard-Footer aus JUNE (wie KW43): Social-Icons, USP-Leiste („Direkt vom Hersteller ✓ · Riesige Auswahl ✓ · Kostenloser Versand* ✓“), Absender-Hinweis, Versand-Fußnote mit Preisstand 22.10.2026, Rechtslinks, Newsletter-Abmeldung, Trusted Shops. UTM-Kampagne auf `thermo-splash-drop` umgestellt, USP-Spalten auf 3 × 200 px (passt in 600 px). Darüber eine Zeile zur UVP-Erklärung.
