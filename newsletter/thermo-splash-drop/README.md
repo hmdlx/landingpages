@@ -3,14 +3,14 @@
 Kompakter, mobile-first E-Mail-Newsletter für alle Kund:innen mit Outdoor-Whirlpool **SPLASH** oder **DROP**.
 Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 600 px breit, weißer Hintergrund, homedeluxe.de-CI).
 
-## Aufbau
+## Aufbau (4 Schritte, wenig Text, alles führt zum CTA)
 
-| Abschnitt | Inhalt |
-|---|---|
-| Hero | Ambiente SPLASH + DROP direkt unter dem Logo · „Du hast so einen Whirlpool von uns? Dann haben wir eine Überraschung für dich.“ · Buttons „Mein SPLASH / Mein DROP“ |
-| 01 · Das Problem | „Du heizt gerade für den Himmel.“ · Nacht-Protokoll (Wärmebalken schrumpft) · 3 Folgen ✕ |
-| 02 · Deine Überraschung | „Deckel drauf. Wärme drin.“ · Thermo-Scan-GIF · 4 Nutzen ✓ (spiegeln die Probleme) |
-| 03 · Jetzt sichern | „Hör auf, für den Himmel zu heizen.“ · Maß-Animation SPLASH ⇄ DROP · 2 Produktkarten nebeneinander · Versand/Vorrat · P.S. |
+| # | Block | Inhalt |
+|---|---|---|
+| 1 | Hast du so einen? | Headline + Ambiente SPLASH & DROP (verlinkt) + „Dann haben wir etwas Neues für dich.“ |
+| 2 | Problem | „Jede Nacht entweicht deine Wärme.“ + Nacht-Protokoll (Wärmebalken) + 1 Zeile Folgen |
+| 3 | Lösung | NEU · „Deckel drauf. Wärme drin.“ + Thermo-Scan-GIF + 3 Kurz-Nutzen |
+| 4 | CTA | „Jetzt passende Abdeckung sichern.“ + 2 Produktkarten (Bild, Maß, Preis, Button) + Versand / Vorrat |
 
 ## Bilder (alle gehostet, nichts hochzuladen)
 
@@ -20,15 +20,15 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 | Hero SPLASH | Shop-CDN: `32309-…-Splash-Grau-Ambiente-Model02.jpg` |
 | Hero DROP | Shop-CDN: `48119-…-Drop-Ambiente-Model01.jpg` |
 | Thermo-Scan | `homedeluxe-bf09.kxcdn.com/3d2f402191c8d809c078b9851b80ba9e.gif` |
-| Maß-Animation | `homedeluxe-bf09.kxcdn.com/3d52bc307d7eb3344a07944ad26fd74f.gif` |
+| CTA-Karten | `homedeluxe-bf09.kxcdn.com/f410213b37e003a7161e55e1789cab54.jpg` (SPLASH), `…/8e40be39af22e4c35d7cfe1572a5b44a.jpg` (DROP) |
 
 ## Betreffzeilen (Vorschläge)
 
-1. Du hast einen SPLASH oder DROP? Wir haben eine Überraschung für dich.
-2. Für deinen Whirlpool: eine Überraschung 🎁
-3. SPLASH oder DROP im Garten? Das hier ist neu für dich.
+1. Hast du so einen? 👀
+2. SPLASH oder DROP im Garten? Das hier ist neu.
+3. Deckel drauf. Wärme drin.
 
-Preheader (im HTML): „Nur für SPLASH- & DROP-Besitzer: Neu und passgenau für deinen Whirlpool – gerade jetzt im Herbst.“
+Preheader (im HTML): „SPLASH oder DROP im Garten? Dann ist das hier neu für dich.“
 
 ## Vor dem Versand
 
