@@ -26,10 +26,14 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 
 Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Regeln für den persönlichen Eindruck: keine Großbuchstaben-Produktnamen im Betreff, kein Preis, kein Emoji, kein „NEU“, Anrede wie in einer 1:1-Mail. Kein „Re:“/„AW:“ – das täuscht eine Antwort vor (Spamfilter + Vertrauensverlust).
 
-**Empfehlung (im HTML hinterlegt)**
-- Absendername: `[Vorname] von Home Deluxe` (z. B. Ansprechpartner aus dem Kundenservice)
-- Betreff: `Kurze Frage zu deinem Whirlpool` (31 Zeichen) – passt zur Hero-Frage „Hast du so einen?“
-- Preheader: `Du hast bei uns einen SPLASH oder DROP gekauft – dafür haben wir jetzt etwas Neues.` (83 Zeichen)
+**Final (im HTML hinterlegt)**
+- Absendername: `[Vorname] von Home Deluxe`
+- Betreff: `Dein Whirlpool wird schnell kalt?` (33 Zeichen)
+- Preheader: `Wir haben jetzt die Lösung – passgenau für deinen SPLASH oder DROP.` (67 Zeichen)
+- Langform als ein Betreff (wird mobil nach ca. 40 Zeichen gekürzt): `Whirlpool wird schnell kalt? Wir haben jetzt die Lösung!`
+
+**Vorherige Empfehlung**
+- `Kurze Frage zu deinem Whirlpool` / `Du hast bei uns einen SPLASH oder DROP gekauft – dafür haben wir jetzt etwas Neues.`
 
 **Mit Vornamen (wenn das Tool Personalisierung kann, Platzhalter an das Tool anpassen)**
 - Betreff: `{{Vorname}}, kurze Frage zu deinem Whirlpool`
