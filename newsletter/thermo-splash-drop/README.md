@@ -26,9 +26,13 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 
 Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben.
 
-**Empfehlung (im HTML hinterlegt)**
-- Betreff: `Dein Whirlpool verliert jede Nacht Wärme` (40 Zeichen)
-- Preheader: `Neu für SPLASH & DROP: die Thermoabdeckung für 79 € – solange der Vorrat reicht.` (80 Zeichen)
+**Final (im HTML hinterlegt)**
+- Betreff: `Neu für deinen aufblasbaren Whirlpool` (37 Zeichen)
+- Preheader: `Passgenau für SPLASH & DROP: Die Thermoabdeckung hält die Wärme drin – für 79 €.` (80 Zeichen)
+
+**Alternative**
+- Betreff: `Dein Whirlpool verliert jede Nacht Wärme`
+- Preheader: `Neu für SPLASH & DROP: die Thermoabdeckung für 79 € – solange der Vorrat reicht.`
 
 **A/B-Test-Variante (Neugier, passt zur Hero-Headline)**
 - Betreff: `Hast du so einen? 👀`
