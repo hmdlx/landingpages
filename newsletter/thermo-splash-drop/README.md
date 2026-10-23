@@ -22,10 +22,23 @@ Gestaltung strikt nach homedeluxe.de-CI: weißer Hintergrund, nur Navy `#0e2234`
 
 Preheader (im HTML hinterlegt): „SPLASH oder DROP im Garten? Dann verlierst du gerade jede Nacht Wärme – so stoppst du das.“
 
+## Creatives
+
+| Stelle | Datei | Hosting |
+|---|---|---|
+| Logo (Kopf) | Home-Deluxe-Logo | bereits gehostet (`homedeluxe-bf09.kxcdn.com/89c7c3da…png`) |
+| 02 · Lösung, Key Visual | `assets/thermo-keyvisual-waerme-bleibt-drin.jpg` | **hochladen** |
+| 02 · Lösung, Thermo-Scan | `assets/thermo-scan.gif` (600 px, 0,9 MB, aus dem Video `HomeDeluxe_SPLASH-THERMO_Thermo-Scan_1x1`) | **hochladen** |
+| Produktkarte SPLASH | `assets/thermo-splash-masse.jpg` | **hochladen** |
+| Produktkarte DROP | `assets/thermo-drop-masse.jpg` (Gegenstück zum SPLASH-Creative, gleiche Gestaltung) | **hochladen** |
+| 03 · CTA, Bild-Links | SPLASH-/DROP-Karte aus KW43 | bereits gehostet (`f410213b…jpg`, `8e40be39…jpg`) |
+
+Das Thermo-Scan-GIF ist ein Storyboard aus dem Video: Wärmebild → „Ohne Abdeckung · Wärme entweicht“ → „Mit SPLASH THERMO · Wärme bleibt“ → Maße → Laub & Schmutz → klares Wasser → Endcard. Outlook zeigt nur das erste Bild (Wärmebild).
+
 ## Vor dem Versand
 
-- `assets/homedeluxe-logo-navy.png` im Newsletter-Tool hochladen und den relativen `src` im Logo-`<img>` durch die gehostete URL ersetzen.
+- Die vier mit **hochladen** markierten Dateien im Newsletter-Tool hochladen und die relativen `src="assets/…"` durch die gehosteten URLs ersetzen.
 - `{{UNSUBSCRIBE_URL}}` durch den Abmelde-Platzhalter des Newsletter-Tools ersetzen.
 - Preise, UVP & kostenlosen Versand prüfen (Stand 22.10.2026 laut Shop: je 79 €; UVP SPLASH THERMO 129 €, DROP THERMO 89 €).
 - Lieferzeit („ca. 1–2 Werktage“) am Versandtag gegenprüfen.
-- Alle Links tragen UTM-Parameter `utm_campaign=thermo-splash-drop` mit eigenem `utm_content` je Button.
+- Alle Links tragen UTM-Parameter `utm_campaign=thermo-splash-drop` mit eigenem `utm_content` je Button bzw. Bild.
