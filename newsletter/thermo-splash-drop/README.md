@@ -19,7 +19,7 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 | Logo | `homedeluxe-bf09.kxcdn.com/89c7c3da91206c657d21a846a65f3a97.png` |
 | Hero SPLASH | Shop-CDN: `32309-…-Splash-Grau-Ambiente-Model02.jpg` |
 | Hero DROP | Shop-CDN: `48119-…-Drop-Ambiente-Model01.jpg` |
-| Thermo-Scan | aktuell `homedeluxe-bf09.kxcdn.com/66eaa461a7f4b64cee4e98b330e1eb2a.gif` (540 px, 26 s, 16,6 MB) – komprimierte Fassung `assets/thermo-scan-8mb.gif` (8,7 MB, gleiche 260 Frames/Timing, gifsicle `--lossy=60`) hochladen und URL tauschen |
+| Thermo-Scan | `homedeluxe-bf09.kxcdn.com/3d2f402191c8d809c078b9851b80ba9e.gif` (640 px, 11 s, 3,1 MB) |
 | CTA-Karten | `homedeluxe-bf09.kxcdn.com/f410213b37e003a7161e55e1789cab54.jpg` (SPLASH), `…/8e40be39af22e4c35d7cfe1572a5b44a.jpg` (DROP) |
 
 ## Betreff & Preheader (persönlicher Ton, wie eine direkte Nachricht)
@@ -59,7 +59,6 @@ Standard-Footer aus JUNE (wie KW43): Social-Icons, USP-Leiste („Direkt vom Her
 
 ## Vor dem Versand
 
-- `assets/thermo-scan-8mb.gif` hochladen und die URL `66eaa461…gif` im HTML durch die neue ersetzen.
 - Preisstand im Footer („Stand: 22.10.2026“) am Versandtag prüfen.
 - Preise, UVP & kostenlosen Versand prüfen (laut Shop: je 79 €; UVP SPLASH THERMO 129 €, DROP THERMO 89 €).
 - Lieferzeit („ca. 1–2 Werktage“) am Versandtag gegenprüfen.
