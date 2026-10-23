@@ -22,25 +22,22 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 | Thermo-Scan | `homedeluxe-bf09.kxcdn.com/3d2f402191c8d809c078b9851b80ba9e.gif` |
 | CTA-Karten | `homedeluxe-bf09.kxcdn.com/f410213b37e003a7161e55e1789cab54.jpg` (SPLASH), `…/8e40be39af22e4c35d7cfe1572a5b44a.jpg` (DROP) |
 
-## Betreff & Preheader
+## Betreff & Preheader (auf Öffnungs- und Klickrate optimiert)
 
-Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben.
+Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Betreff ≤ 36 Zeichen (mobil voll sichtbar), Preheader löst die Neugier mit Nutzen + Preis auf.
 
-**Final (im HTML hinterlegt)**
-- Betreff: `Neu für deinen aufblasbaren Whirlpool` (37 Zeichen)
-- Preheader: `Passgenau für SPLASH & DROP: Die Thermoabdeckung hält die Wärme drin – für 79 €.` (80 Zeichen)
+**Empfehlung (im HTML hinterlegt)**
+- Betreff: `Das fehlt deinem Whirlpool noch` (31 Zeichen)
+- Preheader: `Neu & passgenau für SPLASH und DROP: hält die Wärme im Wasser – nur 79 €.` (73 Zeichen)
 
-**Alternative**
-- Betreff: `Dein Whirlpool verliert jede Nacht Wärme`
-- Preheader: `Neu für SPLASH & DROP: die Thermoabdeckung für 79 € – solange der Vorrat reicht.`
+**Bei getrennten Listen (stärkste Variante, nennt das eigene Modell)**
+- SPLASH: `Das fehlt deinem SPLASH noch` / `SPLASH THERMO: passgenau, hält die Wärme drin – 79 € statt 129 €.`
+- DROP: `Das fehlt deinem DROP noch` / `DROP THERMO: passgenau, hält die Wärme drin – 79 € statt 89 €.`
 
-**A/B-Test-Variante (Neugier, passt zur Hero-Headline)**
-- Betreff: `Hast du so einen? 👀`
-- Preheader: `Für SPLASH & DROP: Wir haben etwas Neues für deinen Whirlpool.`
-
-**Getrennt nach Segment (falls die Listen getrennt sind)**
-- SPLASH: `Neu für deinen SPLASH: Wärme bleibt drin` / `SPLASH THERMO für 79 € statt 129 € – passgenau, solange der Vorrat reicht.`
-- DROP: `Neu für deinen DROP: Wärme bleibt drin` / `DROP THERMO für 79 € statt 89 € – passgenau, solange der Vorrat reicht.`
+**A/B-Test-Gegner**
+- B (Problem): `Dein Whirlpool verliert gerade Wärme` / `Die Lösung kostet 79 € und passt genau auf deinen SPLASH oder DROP.`
+- C (Wiedererkennung): `Hast du einen SPLASH oder DROP?` / `Dann ist das hier neu für dich: Wärme bleibt drin, für nur 79 €.`
+- D (Vorschlag Marketing): `Neu für deinen aufblasbaren Whirlpool` / `Passgenau für SPLASH & DROP: Die Thermoabdeckung hält die Wärme drin – für 79 €.`
 
 ## Vor dem Versand
 
