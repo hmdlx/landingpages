@@ -22,13 +22,21 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 | Thermo-Scan | `homedeluxe-bf09.kxcdn.com/3d2f402191c8d809c078b9851b80ba9e.gif` |
 | CTA-Karten | `homedeluxe-bf09.kxcdn.com/f410213b37e003a7161e55e1789cab54.jpg` (SPLASH), `…/8e40be39af22e4c35d7cfe1572a5b44a.jpg` (DROP) |
 
-## Betreffzeilen (Vorschläge)
+## Betreff & Preheader
 
-1. Hast du so einen? 👀
-2. SPLASH oder DROP im Garten? Das hier ist neu.
-3. Deckel drauf. Wärme drin.
+Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben.
 
-Preheader (im HTML): „SPLASH oder DROP im Garten? Dann ist das hier neu für dich.“
+**Empfehlung (im HTML hinterlegt)**
+- Betreff: `Dein Whirlpool verliert jede Nacht Wärme` (40 Zeichen)
+- Preheader: `Neu für SPLASH & DROP: die Thermoabdeckung für 79 € – solange der Vorrat reicht.` (80 Zeichen)
+
+**A/B-Test-Variante (Neugier, passt zur Hero-Headline)**
+- Betreff: `Hast du so einen? 👀`
+- Preheader: `Für SPLASH & DROP: Wir haben etwas Neues für deinen Whirlpool.`
+
+**Getrennt nach Segment (falls die Listen getrennt sind)**
+- SPLASH: `Neu für deinen SPLASH: Wärme bleibt drin` / `SPLASH THERMO für 79 € statt 129 € – passgenau, solange der Vorrat reicht.`
+- DROP: `Neu für deinen DROP: Wärme bleibt drin` / `DROP THERMO für 79 € statt 89 € – passgenau, solange der Vorrat reicht.`
 
 ## Vor dem Versand
 
