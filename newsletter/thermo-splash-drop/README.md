@@ -22,22 +22,23 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 | Thermo-Scan | `homedeluxe-bf09.kxcdn.com/3d2f402191c8d809c078b9851b80ba9e.gif` |
 | CTA-Karten | `homedeluxe-bf09.kxcdn.com/f410213b37e003a7161e55e1789cab54.jpg` (SPLASH), `…/8e40be39af22e4c35d7cfe1572a5b44a.jpg` (DROP) |
 
-## Betreff & Preheader (auf Öffnungs- und Klickrate optimiert)
+## Betreff & Preheader (persönlicher Ton, wie eine direkte Nachricht)
 
-Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Betreff ≤ 36 Zeichen (mobil voll sichtbar), Preheader löst die Neugier mit Nutzen + Preis auf.
+Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Regeln für den persönlichen Eindruck: keine Großbuchstaben-Produktnamen im Betreff, kein Preis, kein Emoji, kein „NEU“, Anrede wie in einer 1:1-Mail. Kein „Re:“/„AW:“ – das täuscht eine Antwort vor (Spamfilter + Vertrauensverlust).
 
 **Empfehlung (im HTML hinterlegt)**
-- Betreff: `Das fehlt deinem Whirlpool noch` (31 Zeichen)
-- Preheader: `Neu & passgenau für SPLASH und DROP: hält die Wärme im Wasser – nur 79 €.` (73 Zeichen)
+- Absendername: `[Vorname] von Home Deluxe` (z. B. Ansprechpartner aus dem Kundenservice)
+- Betreff: `Kurze Frage zu deinem Whirlpool` (31 Zeichen) – passt zur Hero-Frage „Hast du so einen?“
+- Preheader: `Du hast bei uns einen SPLASH oder DROP gekauft – dafür haben wir jetzt etwas Neues.` (83 Zeichen)
 
-**Bei getrennten Listen (stärkste Variante, nennt das eigene Modell)**
-- SPLASH: `Das fehlt deinem SPLASH noch` / `SPLASH THERMO: passgenau, hält die Wärme drin – 79 € statt 129 €.`
-- DROP: `Das fehlt deinem DROP noch` / `DROP THERMO: passgenau, hält die Wärme drin – 79 € statt 89 €.`
+**Mit Vornamen (wenn das Tool Personalisierung kann, Platzhalter an das Tool anpassen)**
+- Betreff: `{{Vorname}}, kurze Frage zu deinem Whirlpool`
+- Preheader: `Hallo {{Vorname}}, du hast bei uns einen SPLASH oder DROP gekauft – dafür gibt es jetzt etwas Neues.`
+- Fallback ohne Vornamen: Variante oben.
 
-**A/B-Test-Gegner**
-- B (Problem): `Dein Whirlpool verliert gerade Wärme` / `Die Lösung kostet 79 € und passt genau auf deinen SPLASH oder DROP.`
-- C (Wiedererkennung): `Hast du einen SPLASH oder DROP?` / `Dann ist das hier neu für dich: Wärme bleibt drin, für nur 79 €.`
-- D (Vorschlag Marketing): `Neu für deinen aufblasbaren Whirlpool` / `Passgenau für SPLASH & DROP: Die Thermoabdeckung hält die Wärme drin – für 79 €.`
+**Alternativen im gleichen Ton**
+- `Wir haben an deinen Whirlpool gedacht` / `Gerade jetzt im Herbst wird das für dich wichtig – schau mal kurz rein.`
+- Getrennte Listen: `Das habe ich für deinen SPLASH` bzw. `… DROP` / `Passt genau auf deinen Whirlpool und hält die Wärme drin. Schau mal rein.`
 
 ## Vor dem Versand
 
