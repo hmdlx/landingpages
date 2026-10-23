@@ -19,7 +19,7 @@ Datei: `newsletter.html` (E-Mail-taugliches Tabellen-HTML, Inline-Styles, max. 6
 | Logo | `homedeluxe-bf09.kxcdn.com/89c7c3da91206c657d21a846a65f3a97.png` |
 | Hero SPLASH | Shop-CDN: `32309-…-Splash-Grau-Ambiente-Model02.jpg` |
 | Hero DROP | Shop-CDN: `48119-…-Drop-Ambiente-Model01.jpg` |
-| Thermo-Scan | `homedeluxe-bf09.kxcdn.com/66eaa461a7f4b64cee4e98b330e1eb2a.gif` (540 px, 26 s, 16,6 MB) |
+| Thermo-Scan | aktuell `homedeluxe-bf09.kxcdn.com/66eaa461a7f4b64cee4e98b330e1eb2a.gif` (540 px, 26 s, 16,6 MB) – komprimierte Fassung `assets/thermo-scan-8mb.gif` (8,7 MB, gleiche 260 Frames/Timing, gifsicle `--lossy=60`) hochladen und URL tauschen |
 | CTA-Karten | `homedeluxe-bf09.kxcdn.com/f410213b37e003a7161e55e1789cab54.jpg` (SPLASH), `…/8e40be39af22e4c35d7cfe1572a5b44a.jpg` (DROP) |
 
 ## Betreff & Preheader (persönlicher Ton, wie eine direkte Nachricht)
@@ -44,9 +44,14 @@ Empfänger: nur Kund:innen, die einen SPLASH oder DROP gekauft haben. Regeln fü
 - `Wir haben an deinen Whirlpool gedacht` / `Gerade jetzt im Herbst wird das für dich wichtig – schau mal kurz rein.`
 - Getrennte Listen: `Das habe ich für deinen SPLASH` bzw. `… DROP` / `Passt genau auf deinen Whirlpool und hält die Wärme drin. Schau mal rein.`
 
+## Footer
+
+Standard-Footer aus JUNE (wie KW43): Social-Icons, USP-Leiste („Direkt vom Hersteller ✓ · Riesige Auswahl ✓ · Kostenloser Versand* ✓“), Absender-Hinweis, Versand-Fußnote mit Preisstand 22.10.2026, Rechtslinks, Newsletter-Abmeldung, Trusted Shops. UTM-Kampagne auf `thermo-splash-drop` umgestellt, USP-Spalten auf 3 × 200 px (passt in 600 px). Darüber eine Zeile zur UVP-Erklärung.
+
 ## Vor dem Versand
 
-- `{{UNSUBSCRIBE_URL}}` durch den Abmelde-Platzhalter des Newsletter-Tools ersetzen.
-- Preise, UVP & kostenlosen Versand prüfen (Stand 22.10.2026 laut Shop: je 79 €; UVP SPLASH THERMO 129 €, DROP THERMO 89 €).
+- `assets/thermo-scan-8mb.gif` hochladen und die URL `66eaa461…gif` im HTML durch die neue ersetzen.
+- Preisstand im Footer („Stand: 22.10.2026“) am Versandtag prüfen.
+- Preise, UVP & kostenlosen Versand prüfen (laut Shop: je 79 €; UVP SPLASH THERMO 129 €, DROP THERMO 89 €).
 - Lieferzeit („ca. 1–2 Werktage“) am Versandtag gegenprüfen.
-- Alle Links tragen UTM-Parameter `utm_campaign=thermo-splash-drop` mit eigenem `utm_content` je Button bzw. Bild.
+- Alle Links tragen UTM-Parameter `utm_campaign=thermo-splash-drop`.
